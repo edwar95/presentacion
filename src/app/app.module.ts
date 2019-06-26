@@ -3,16 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TestComponent } from './components/test/test.component';
+import {HttpClientModule} from "@angular/common/http";
+import {GitUsersService} from "./services/gitUsersService/git-users.service";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [GitUsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

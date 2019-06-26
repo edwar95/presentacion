@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {GitUsersService} from "./services/gitUsersService/git-users.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-app';
+  character: any;
+
+  constructor(private _gitUsersService: GitUsersService) {}
+
+  ngOnInit() {
+    this._gitUsersService.getUser().subscribe(
+      (response) => {
+        this.character = response;
+      }
+    );
+  }
 }
